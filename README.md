@@ -29,9 +29,9 @@ This assumes you have:
 
 2. Installed homebrew
 
-        ```bash
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-        ```
+	```bash
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	```
 
 2.1
 	You'll probably want to encrypt yourself a HOMEBREW API token if you are not me, because you'll need a decryptable vault variable to use or your homebrew will be rate-limited pretty soon.
