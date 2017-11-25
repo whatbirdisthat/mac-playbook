@@ -1,0 +1,9 @@
+export GPG_TTY=$(tty)
+export CLICOLOR=1
+
+alias ll='ls -laht'
+alias tree='tree -hC'
+
+reload-bash-profile() { source ~/.bash_profile ; }
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

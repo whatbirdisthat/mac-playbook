@@ -1,16 +1,20 @@
 ---
 - hosts: all
-  tasks:  
+  tasks:
 
     - name: Install libraries with homebrew
       homebrew: name={{ item }} state=present
       with_items:
+        - awscli
         - bash
         - bash-completion
         - bmon
+        - docker-completion
+        - docker-compose-completion
         - git
+        - lynx
         - pass
-        - awscli
+        - pandoc
         - shellcheck
         - tmux
         - tree
@@ -21,17 +25,23 @@
     - name: Install apps with homebrew-cask
       homebrew_cask: name={{ item }} state=present
       with_items:
-        - google-chrome
         - "0xed"
         - atom
-        - docker
-        - macdown
-        - obs
-        - gpg-suite
-        - google-backup-and-sync
-        - spectacle
-        - iterm2
+        - blender
         - disk-inventory-x
+        - docker
+        - gimp
+        - google-backup-and-sync
+        - google-chrome
+        - gpg-suite
+        - iterm2
+        - kindle
+        - macdown
+        - mpv
+        - obs
+        - processing
+        - spectacle
+        - steam
         - ttscoff-mmd-quicklook
         - xquartz
 
@@ -65,6 +75,13 @@
         path: "{{ ansible_env.HOME }}/.bash_profile"
         line: 'source /usr/local/etc/bash_completion.d/password-store'
 
+    - name: Create .containers.d for container definitions etc
+      file:
+        path: "{{ ansible_env.HOME }}/.containers.d"
+        state: directory
+        mode: 0755
 
-
-
+    - name: Add some extra goodness to bash_profile
+      blockinfile:
+        path: "{{ ansible_env.HOME }}/.bash_profile"
+        block: "{{ lookup('file', 'files/bash_profile') }}"
