@@ -1,0 +1,50 @@
+---
+- hosts: all
+  tasks:  
+
+    - name: Install libraries with homebrew
+      homebrew: name={{ item }} state=present
+      with_items:
+        - bash
+        - bash-completion
+        - git
+        - pass
+
+    - name: Install apps with homebrew-cask
+      homebrew_cask: name={{ item }} state=present
+      with_items:
+        - google-chrome
+
+    - name: Get git completion and PS1 scripts
+      get_url:
+        url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+        dest: /usr/local/etc/bash_completion.d/git-copmletion.bash
+
+    - name: Get git PS1 prompt
+      get_url:
+        url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
+        dest: /usr/local/share/git-prompt.sh
+
+    - name: Add HOMEBREW_GITHUB_API_TOKEN
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.bash_profile"
+        line: 'HOMEBREW_GITHUB_API_TOKEN={{ homebrew_token }}'
+
+    - name: Update global git completion
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.bash_profile"
+        line: '[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion'
+
+    - name: Update global git prompt
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.bash_profile"
+        line: '[ -f /usr/local/share/git-prompt.sh ] && . /usr/local/share/git-prompt.sh'
+
+    - name: Standard Pass completion
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.bash_profile"
+        line: 'source /usr/local/etc/bash_completion.d/password-store'
+
+
+
+
