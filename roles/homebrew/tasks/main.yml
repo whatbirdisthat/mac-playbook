@@ -1,0 +1,21 @@
+- name: Install libraries with homebrew
+  homebrew: name={{ item }} state=present
+  with_items:
+    - awscli
+    - bash
+    - bash-completion
+    - bmon
+    - docker-completion
+    - docker-compose-completion
+    - git
+    - lynx
+    - pass
+    - pandoc
+    - shellcheck
+    - tmux
+    - tree
+    - watch
+    - wget
+    - youtube-dl
+
+
