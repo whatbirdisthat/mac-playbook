@@ -1,4 +1,0 @@
-#localhost           ansible_connection=local
-#172.16.7.174  ansible_connection=ssh        ansible_user=davidwalters
-docker.for.mac.host.internal ansible_connection=ssh ansible_user=davidwalters
-
