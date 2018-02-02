@@ -1,0 +1,8 @@
+---
+- name: Create .containers.d for container definitions etc
+  file:
+    path: "{{ ansible_env.HOME }}/.containers.d"
+    state: directory
+    mode: 0755
+
+

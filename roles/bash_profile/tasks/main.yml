@@ -1,0 +1,15 @@
+- name: Add HOMEBREW_GITHUB_API_TOKEN
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bash_profile"
+    line: 'HOMEBREW_GITHUB_API_TOKEN={{ homebrew_token }}'
+
+- name: Add some extra goodness to bash_profile
+  blockinfile:
+    path: "{{ ansible_env.HOME }}/.bash_profile"
+    block: "{{ lookup('file', 'files/bash_profile') }}"
+
+- name: Standard Pass completion
+  lineinfile:
+    path: "{{ ansible_env.HOME }}/.bash_profile"
+    line: 'source /usr/local/etc/bash_completion.d/password-store'
+

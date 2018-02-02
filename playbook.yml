@@ -1,87 +1,11 @@
 ---
-- hosts: all
+- name: Set up the mac of awesome
+  hosts: all
+  roles:
+    - containers_d
+    - bash_profile
+    - homebrew
+    - homebrew_cask
+
   tasks:
 
-    - name: Install libraries with homebrew
-      homebrew: name={{ item }} state=present
-      with_items:
-        - awscli
-        - bash
-        - bash-completion
-        - bmon
-        - docker-completion
-        - docker-compose-completion
-        - git
-        - lynx
-        - pass
-        - pandoc
-        - shellcheck
-        - tmux
-        - tree
-        - watch
-        - wget
-        - youtube-dl
-
-    - name: Install apps with homebrew-cask
-      homebrew_cask: name={{ item }} state=present
-      with_items:
-        - "0xed"
-        - atom
-        - blender
-        - disk-inventory-x
-        - docker
-        - gimp
-        - google-backup-and-sync
-        - google-chrome
-        - gpg-suite
-        - iterm2
-        - kindle
-        - macdown
-        - mpv
-        - obs
-        - processing
-        - spectacle
-        - steam
-        - ttscoff-mmd-quicklook
-        - xquartz
-
-    - name: Get git completion and PS1 scripts
-      get_url:
-        url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-        dest: /usr/local/etc/bash_completion.d/git-copmletion.bash
-
-    - name: Get git PS1 prompt
-      get_url:
-        url: https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
-        dest: /usr/local/share/git-prompt.sh
-
-    - name: Add HOMEBREW_GITHUB_API_TOKEN
-      lineinfile:
-        path: "{{ ansible_env.HOME }}/.bash_profile"
-        line: 'HOMEBREW_GITHUB_API_TOKEN={{ homebrew_token }}'
-
-    - name: Update global git completion
-      lineinfile:
-        path: "{{ ansible_env.HOME }}/.bash_profile"
-        line: '[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion'
-
-    - name: Update global git prompt
-      lineinfile:
-        path: "{{ ansible_env.HOME }}/.bash_profile"
-        line: '[ -f /usr/local/share/git-prompt.sh ] && . /usr/local/share/git-prompt.sh'
-
-    - name: Standard Pass completion
-      lineinfile:
-        path: "{{ ansible_env.HOME }}/.bash_profile"
-        line: 'source /usr/local/etc/bash_completion.d/password-store'
-
-    - name: Create .containers.d for container definitions etc
-      file:
-        path: "{{ ansible_env.HOME }}/.containers.d"
-        state: directory
-        mode: 0755
-
-    - name: Add some extra goodness to bash_profile
-      blockinfile:
-        path: "{{ ansible_env.HOME }}/.bash_profile"
-        block: "{{ lookup('file', 'files/bash_profile') }}"
