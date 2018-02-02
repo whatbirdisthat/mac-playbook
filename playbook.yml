@@ -1,6 +1,9 @@
 ---
+
 - name: Set up the mac of awesome
+
   hosts: all
+
   roles:
     - containers_d
     - bash_profile
@@ -8,4 +11,20 @@
     - homebrew_cask
 
   tasks:
+
+    - name: Add some extra goodness to bash_profile
+      blockinfile:
+        path: "{{ ansible_env.HOME }}/.bash_profile"
+        block: "{{ lookup('file', 'files/bash_profile') }}"
+
+    - name: Standard Pass completion
+      lineinfile:
+        path: "{{ ansible_env.HOME }}/.bash_profile"
+        line: 'source /usr/local/etc/bash_completion.d/password-store'
+
+    - name: Create .containers.d for container definitions etc
+      file:
+        path: "{{ ansible_env.HOME }}/.containers.d"
+        state: directory
+        mode: 0755
 
