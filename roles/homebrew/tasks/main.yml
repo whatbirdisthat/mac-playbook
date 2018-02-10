@@ -10,6 +10,7 @@
     - jq
     - kubectl
     - lynx
+    - mas
     - pandoc
     - pass
     - tmux
