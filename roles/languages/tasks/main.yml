@@ -1,0 +1,24 @@
+---
+  - name: homebrew bash
+    homebrew: name=bash state=present
+    with_items:
+      - bash
+      - bash-completion
+      - shellcheck
+
+  - name: java8 the things
+    homebrew_cask: name=java8 state=present
+
+  - name: groovy et al
+    homebrew: name={{ item }} state=present
+    with_items:
+      - groovysdk
+      - gradle
+
+  - name: scala
+    homebrew: name=scala state=present install_options=with-src,with-docs
+
+  - name: scala (with IntelliJ)
+    lineinfile:
+      path: "{{ ansible_env.HOME }}/.bash_profile"
+      line: 'SCALA_HOME=/usr/local/opt/scala/idea'

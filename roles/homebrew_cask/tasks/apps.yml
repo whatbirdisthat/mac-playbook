@@ -1,0 +1,19 @@
+---
+- name: Install apps with homebrew-cask
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - "0xed"
+    - atom
+    - blender
+    - docker
+    - gimp
+    - google-chrome
+    - jetbrains-toolbox
+    - kindle
+    - macdown
+    - mpv
+    - obs
+    - processing
+    - spectacle
+    - steam
+    - virtualbox

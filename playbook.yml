@@ -9,6 +9,7 @@
     - bash_profile
     - homebrew
     - homebrew_cask
+    - languages
 
   tasks:
 
@@ -27,4 +28,3 @@
         path: "{{ ansible_env.HOME }}/.containers.d"
         state: directory
         mode: 0755
-

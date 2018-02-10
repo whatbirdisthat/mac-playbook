@@ -1,0 +1,14 @@
+---
+- name: Install apps with homebrew-cask
+  homebrew_cask: name={{ item }} state=present
+  with_items:
+    - clocker
+    - disk-inventory-x
+    - docker
+    - google-backup-and-sync
+    - gpg-suite
+    - iterm2
+    - minikube
+    - spectacle
+    - ttscoff-mmd-quicklook
+    - xquartz

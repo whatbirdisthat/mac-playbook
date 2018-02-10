@@ -1,28 +1,6 @@
-- name: Install apps with homebrew-cask
-  homebrew_cask: name={{ item }} state=present
-  with_items:
-    - "0xed"
-    - atom
-    - blender
-    - clocker
-    - disk-inventory-x
-    - docker
-    - gimp
-    - google-backup-and-sync
-    - google-chrome
-    - gpg-suite
-    - iterm2
-    - jetbrains-toolbox
-    - kindle
-    - macdown
-    - minikube
-    - mpv
-    - obs
-    - processing
-    - spectacle
-    - steam
-    - ttscoff-mmd-quicklook
-    - virtualbox
-    - xquartz
+---
+  - name: Install homebrew cask utils
+    include: utils.yml
 
-
+  - name: Install homebrew cask apps
+    include: apps.yml
