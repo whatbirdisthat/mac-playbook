@@ -34,7 +34,7 @@ This assumes you have:
 	```
 
 2.1
-	You'll probably want to encrypt yourself a HOMEBREW API token if you are not me, because you'll need a decryptable vault variable to use or your homebrew will be rate-limited pretty soon.
+	You'll probably want to encrypt yourself a HOMEBREW API token if you are not me, because you'll need a decryptable vault variable to use or your homebrew will be rate-limited pretty soon. Use ansible vault to write over the file in `group_vars/all/vars`
 
 3. Installed Ansible.
 
