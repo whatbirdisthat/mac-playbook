@@ -1,5 +1,5 @@
 ---
-- name: Install apps with homebrew-cask
+- name: Install utils with homebrew-cask
   homebrew_cask: name={{ item }} state=present
   with_items:
     - clocker
