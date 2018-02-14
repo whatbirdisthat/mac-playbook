@@ -8,3 +8,6 @@ install:
 show_vars:
 	@ansible -m setup all -i hosts --ask-vault-pass > ansible_vars.json
 
+containers:
+	@ansible-playbook playbook.yml -i hosts --ask-vault-pass --private-key=~/.ssh/id_rsa --tags "containers_d"
+

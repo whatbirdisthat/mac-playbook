@@ -5,7 +5,7 @@
   hosts: all
 
   roles:
-    - containers_d
+    - { role: containers_d, tags: [ 'containers_d' ] }
     - bash_profile
     - homebrew
     - homebrew_cask
@@ -18,13 +18,3 @@
         path: "{{ ansible_env.HOME }}/.bash_profile"
         block: "{{ lookup('file', 'files/bash_profile') }}"
 
-    - name: Standard Pass completion
-      lineinfile:
-        path: "{{ ansible_env.HOME }}/.bash_profile"
-        line: 'source /usr/local/etc/bash_completion.d/password-store'
-
-    - name: Create .containers.d for container definitions etc
-      file:
-        path: "{{ ansible_env.HOME }}/.containers.d"
-        state: directory
-        mode: 0755
