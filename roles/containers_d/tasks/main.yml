@@ -24,7 +24,12 @@
 
 - name: Add clean-docker-images command content
   copy:
-    content: "docker rmi `docker images | grep \\<none | awk '{print $3}'` ;"
+    content: |
+      #docker rmi `docker images | grep \\<none | awk '{print $3}'` ;
+      IS_IMGS=`docker images -q filter=dangling=true`
+      if [ "x" != "x${IS_IMGS}" ] ; then
+        docker rmi ${IS_IMGS}
+      else
+        echo "Nothing to clean."
+      fi
     dest: "/usr/local/bin/clean-docker-images"
-
-
