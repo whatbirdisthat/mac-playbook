@@ -1,0 +1,10 @@
+- set_fact: pkgname="{{item}}"
+
+- name: Check whether package '{{item}}' already installed
+  shell: "/usr/local/bin/apm list -ipb | grep '{{item}}@' | wc -l | sed 's/ //g'"
+  register: installed
+  changed_when: installed.stdout=="0"
+
+- name: Install '{{item}}' if necessary
+  shell: "/usr/local/bin/apm install {{item}}"
+  when: installed.stdout=="0"

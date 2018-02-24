@@ -1,6 +1,6 @@
 ---
   - name: Install homebrew cask utils
-    include: utils.yml
+    import_tasks: utils.yml
 
   - name: Install homebrew cask apps
-    include: apps.yml
+    import_tasks: apps.yml

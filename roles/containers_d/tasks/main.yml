@@ -5,4 +5,31 @@
     state: directory
     mode: 0755
 
+- name: Create clean-docker-containers command file
+  file:
+    path: "/usr/local/bin/clean-docker-containers"
+    mode: 0544
+    state: touch
 
+- name: Add clean-docker-containers command content
+  copy:
+    content: "docker rm `docker ps -a | grep Exited | awk '{print $1}'` ;"
+    dest: "/usr/local/bin/clean-docker-containers"
+
+- name: Create clean-docker-images command file
+  file:
+    path: "/usr/local/bin/clean-docker-images"
+    mode: 0544
+    state: touch
+
+- name: Add clean-docker-images command content
+  copy:
+    content: |
+      #docker rmi `docker images | grep \\<none | awk '{print $3}'` ;
+      IS_IMGS=`docker images -q filter=dangling=true`
+      if [ "x" != "x${IS_IMGS}" ] ; then
+        docker rmi ${IS_IMGS}
+      else
+        echo "Nothing to clean."
+      fi
+    dest: "/usr/local/bin/clean-docker-images"

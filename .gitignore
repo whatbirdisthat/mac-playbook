@@ -1,3 +1,5 @@
 .playbook.yml.swp
 playbook.retry
 hosts
+
+/hosts_secure
