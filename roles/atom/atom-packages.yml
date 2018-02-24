@@ -1,7 +1,21 @@
 - name: Installing missing Atom packages
+
   hosts: all
+
   vars_files:
   - req-packages.yml
+
   tasks:
-  - include: atom-one-package.yml
+
+  - name: Confirm package upgrades are necessary
+    shell: "/usr/local/bin/apm outdated --no-color | head -n1 | awk '{ print $4 }' | sed 's/[\\(\\)]//g'"
+    register: apm_updates
+    changed_when: apm_updates.stdout != "0"
+
+  - name: Upgrade installed packages
+    shell: /usr/local/bin/apm upgrade --confirm false
+    when: apm_updates.stdout != "0"
+
+  - name: Install required packages
+    include_tasks: atom-one-package.yml
     with_items: "{{req_packages}}"

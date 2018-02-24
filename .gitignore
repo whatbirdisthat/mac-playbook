@@ -3,3 +3,5 @@ playbook.retry
 hosts
 
 /hosts_secure
+*.retry
+**/*.retry

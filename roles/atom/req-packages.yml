@@ -2,6 +2,14 @@
  req_packages:
    - linter-docker
    - platformio-ide-terminal
+   - language-ansible
+   - language-make
+   - atom-ide-ui
+   - ide-csharp
+   - ide-java
+   - ide-typescript
+
+
 # - change-tabs
 # - expose
 # - linter-crystal
