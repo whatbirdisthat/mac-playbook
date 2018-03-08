@@ -8,6 +8,8 @@
    - ide-csharp
    - ide-java
    - ide-typescript
+   - atom-cform-yaml
+   - atom-cform
 
 
 # - change-tabs
