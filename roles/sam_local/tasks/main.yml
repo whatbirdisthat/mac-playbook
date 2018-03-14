@@ -1,0 +1,7 @@
+---
+  - name: homebrew golang
+    homebrew: name=golang state=present
+
+  - name: sam-local install
+    shell: "/usr/local/bin/go get github.com/awslabs/aws-sam-local"
+

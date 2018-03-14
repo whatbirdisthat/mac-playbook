@@ -6,10 +6,12 @@
 
   roles:
     - { role: containers_d, tags: [ 'containers_d' ] }
-    - bash_profile
-    - homebrew
-    - homebrew_cask
-    - languages
+    - { role: bash_profile, tags: [ 'bash_profile' ] }
+    - { role: homebrew, tags: [ 'homebrew' ] }
+    - { role: homebrew_cask, tags: [ 'homebrew_cask' ] }
+    - { role: languages, tags: [ 'languages' ] }
+    - { role: sam_local, tags: [ 'sam_local' ] }
+    - { role: vscode, tags: [ 'vscode' ] }
 
   tasks:
 

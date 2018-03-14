@@ -1,0 +1,22 @@
+---
+- name: Install visual-studio-code and some handy extensions
+  homebrew_cask: name=visual-studio-code state=present
+
+- name: Install vscode extensions
+  command: "/usr/local/bin/code --install-extension '{{ item }}'"
+  with_items:
+    - PeterJausovec.vscode-docker
+    - Tyriar.sort-lines
+    - codezombiech.gitignore
+    - cssho.vscode-svgviewer
+    - eamodio.gitlens
+    - formulahendry.code-runner
+    - mike-lischke.vscode-antlr4
+    - ms-vscode.csharp
+    - naereen.makefiles-support-for-vscode
+    - redhat.vscode-yaml
+    - twxs.cmake
+    - vector-of-bool.cmake-tools
+    - vscoss.vscode-ansible
+  register: vscode_result
+  changed_when: "'already installed' not in vscode_result.stdout"

@@ -11,6 +11,15 @@ create-hosts-files:
 install: create-hosts-files
 	ansible-playbook playbook.yml -vvv -i hosts_secure --ask-vault-pass --private-key=~/.ssh/id_rsa
 
+languages: create-hosts-files
+	ansible-playbook playbook.yml -i hosts --private-key=~/.ssh/id_rsa --tags "languages"
+
+sam-local: create-hosts-files
+	ansible-playbook playbook.yml -i hosts --private-key=~/.ssh/id_rsa --tags "sam_local"
+
+vscode: create-hosts-files
+	ansible-playbook playbook.yml -i hosts --private-key=~/.ssh/id_rsa --tags "vscode"
+
 atom-plugins: create-hosts-files
 	ansible-playbook roles/atom/atom-packages.yml -i hosts --private-key=~/.ssh/id_rsa
 
