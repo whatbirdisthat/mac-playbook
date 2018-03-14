@@ -5,13 +5,19 @@
 - name: Install vscode extensions
   command: "/usr/local/bin/code --install-extension '{{ item }}'"
   with_items:
+    - DavidAnson.vscode-markdownlint
     - PeterJausovec.vscode-docker
     - Tyriar.sort-lines
+    - austin.code-gnu-global
     - codezombiech.gitignore
     - cssho.vscode-svgviewer
+    - donjayamanne.githistory
     - eamodio.gitlens
     - formulahendry.code-runner
+    - lukehoban.Go
     - mike-lischke.vscode-antlr4
+    - mitaki28.vscode-clang
+    - ms-vscode.cpptools
     - ms-vscode.csharp
     - naereen.makefiles-support-for-vscode
     - redhat.vscode-yaml
