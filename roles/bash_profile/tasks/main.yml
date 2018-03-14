@@ -7,9 +7,3 @@
   blockinfile:
     path: "{{ ansible_env.HOME }}/.bash_profile"
     block: "{{ lookup('file', 'files/bash_profile') }}"
-
-# - name: Standard Pass completion
-#   lineinfile:
-#     path: "{{ ansible_env.HOME }}/.bash_profile"
-#     line: 'source /usr/local/etc/bash_completion.d/password-store'
-
