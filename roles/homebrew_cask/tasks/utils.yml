@@ -5,6 +5,7 @@
     - clocker
     - disk-inventory-x
     - docker
+    - flycut
     - google-backup-and-sync
     - gpg-suite
     - iterm2
