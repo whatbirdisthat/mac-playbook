@@ -9,20 +9,32 @@
     - PeterJausovec.vscode-docker
     - Tyriar.sort-lines
     - austin.code-gnu-global
+    - bibhasdn.unique-lines
     - codezombiech.gitignore
     - cssho.vscode-svgviewer
     - donjayamanne.githistory
+    - donjayamanne.jupyter
     - eamodio.gitlens
+    - esbenp.prettier-vscode
+    - evilz.vscode-reveal
     - formulahendry.code-runner
+    - haaaad.ansible
     - lukehoban.Go
+    - marcostazi.VS-code-vagrantfile
     - mike-lischke.vscode-antlr4
     - mitaki28.vscode-clang
+    - ms-python.python
     - ms-vscode.cpptools
     - ms-vscode.csharp
     - naereen.makefiles-support-for-vscode
     - redhat.vscode-yaml
+    - ryu1kn.partial-diff
+    - secanis.jenkinsfile-support
+    - streetsidesoftware.code-spell-checker
+    - tuxtina.json2yaml
     - twxs.cmake
     - vector-of-bool.cmake-tools
     - vscoss.vscode-ansible
+    - wholroyd.jinja
   register: vscode_result
   changed_when: "'already installed' not in vscode_result.stdout"
