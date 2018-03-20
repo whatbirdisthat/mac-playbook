@@ -11,6 +11,9 @@ create-hosts-files:
 install: create-hosts-files
 	ansible-playbook playbook.yml -vvv -i hosts_secure --ask-vault-pass --private-key=~/.ssh/id_rsa
 
+check:
+	ansible-lint playbook.yml
+
 homebrew: create-hosts-files
 	ansible-playbook playbook.yml -i hosts --private-key=~/.ssh/id_rsa --tags "homebrew"
 
