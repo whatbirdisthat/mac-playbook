@@ -1,11 +1,16 @@
 # Mac Playbook
+
 ---
 
-_A no-frills set-up-my-mac script_
+## A no-frills set-up-my-mac script
 
-### Note:
+### TL;DR
+> The Makefile contains some targets for installing groups of stuf,
+> which leverage tags set up in the various roles. RTFM for more info :)
 
-```
+### Note
+
+```text
 Requires Ansible 2.4+
 ```
 
@@ -19,29 +24,30 @@ This assumes you have:
 
 1. Made yourself sudo
 
-	```bash
-	echo "$USER    ALL=(ALL) NOPASSWD: ALL" > $USER.sudoer && \
-		chmod 600 $USER.sudoer && \
-		sudo chown root $USER.sudoer && \
-		sudo mv $USER.sudoer /etc/sudoers.d/$USER
-	```
+  ```bash
+  echo "$USER    ALL=(ALL) NOPASSWD: ALL" > $USER.sudoer && \
+    chmod 600 $USER.sudoer && \
+    sudo chown root $USER.sudoer && \
+    sudo mv $USER.sudoer /etc/sudoers.d/$USER
+  ```
 
-  1.1. You have `cat id_rsa.pub >>authorized_keys` while working in `~/.ssh/`
+  ```bash
+    cd ~/.ssh
+    cat id_rsa.pub >>authorized_keys
+  ```
 
 2. Installed homebrew
 
-	```bash
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	```
+```bash
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
-  2.1.
-	You'll probably want to encrypt yourself a HOMEBREW API token if you are not me, because you'll need a decryptable vault variable to use or your homebrew will be rate-limited pretty soon. Use ansible vault to write over the file in `group_vars/all/vars`
+  * You'll probably want to encrypt yourself a HOMEBREW API token if you are not me, because you'll need a decryptable vault variable to use or your homebrew will be rate-limited pretty soon. Use ansible vault to write over the file in `group_vars/all/vars`
 
-  ```ini
+  ```python
   homebrew_token: 'XXXXYYYYZZZZAAAABBBBCCCC'
   other_stuff: 'THINGZ'
   ```
-
 
   ```bash
   vim group_vars/all/vars
@@ -50,11 +56,12 @@ This assumes you have:
 
 3. Installed Ansible. ... OR
 
-  (This is where it gets weird. ...ish)
+    (This is where it gets weird. ...ish)
 
-  ## Choose either _actual_ localhost, or `brew install docker`
+## Choose either _actual_ localhost, or `brew install docker`
 
-4. if you chose `brew install docker` then you'll need to have built [container-ansible](https://github.com/whatbirdisthat/container-ansible) to run this from. Also you win a prize!
+
+4. If you chose `brew install docker` then you'll need to have built [container-ansible](https://github.com/whatbirdisthat/container-ansible) to run this from. Also you win a prize!
 
 5. Remember to write a script to do steps 1-4 ;)
 
