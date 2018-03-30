@@ -24,8 +24,10 @@
       - bash-completion
       - shellcheck
 
-  - name: java8 the things
-    homebrew_cask: name=java8 state=present
+  - name: java the things
+    homebrew_cask: name={{ item }} state=present
+    with_items:
+      - java
 
   - name: groovy et al
     homebrew: name={{ item }} state=present
