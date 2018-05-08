@@ -10,6 +10,7 @@
     - gpg-suite
     - iterm2
     - minikube
+    - minishift
     - spectacle
     - ttscoff-mmd-quicklook
     - xquartz
