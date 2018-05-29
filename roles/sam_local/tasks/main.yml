@@ -4,6 +4,7 @@
 
   - name: Check for presence of aws-sam-local
     command: "/usr/local/bin/go list github.com/awslabs/aws-sam-local"
+    ignore_errors: yes
     register: aws_sam_local_no_exist
     changed_when: aws_sam_local_no_exist.rc == 1
 

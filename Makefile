@@ -8,8 +8,11 @@ create-hosts-files:
 	echo "#localhost	ansible_connection=local" >>hosts
 	echo "docker.for.mac.host.internal ansible_connection=ssh ansible_user=${MACUSER}" >>hosts
 
-install: create-hosts-files
+install-verbose: create-hosts-files
 	ansible-playbook playbook.yml -vvv -i hosts_secure --ask-vault-pass --private-key=~/.ssh/id_rsa
+
+install: create-hosts-files
+	ansible-playbook playbook.yml -i hosts_secure --ask-vault-pass --private-key=~/.ssh/id_rsa
 
 check:
 	ansible-lint playbook.yml
