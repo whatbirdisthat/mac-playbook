@@ -6,6 +6,7 @@
     - bmon
     - colordiff
     - coreutils
+    - direnv
     - docker-completion
     - docker-compose-completion
     - dos2unix
