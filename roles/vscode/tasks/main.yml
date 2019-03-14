@@ -29,7 +29,6 @@
     - formulahendry.code-runner
     - haaaad.ansible
     - kddejong.vscode-cfn-lint
-    - lukehoban.Go
     - marcostazi.VS-code-vagrantfile
     - mauve.terraform
     - mdickin.markdown-shortcuts
@@ -41,7 +40,6 @@
     - ms-vscode.cpptools
     - ms-vscode.csharp
     - ms-vsliveshare.vsliveshare
-    - naereen.makefiles-support-for-vscode
     - oderwat.indent-rainbow
     - redhat.vscode-yaml
     - ryu1kn.partial-diff
