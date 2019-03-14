@@ -4,14 +4,18 @@
   with_items:
     - awscli
     - bmon
+    - colordiff
+    - coreutils
     - docker-completion
     - docker-compose-completion
+    - dos2unix
     - git
     - httpie
     - jq
     - kubectl
     - lynx
     - mas
+    - neofetch
     - pandoc
     - pass
     - tmux

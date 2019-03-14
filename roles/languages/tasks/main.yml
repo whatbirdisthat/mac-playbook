@@ -22,6 +22,7 @@
     with_items:
       - bash
       - bash-completion
+      - bats
       - shellcheck
 
   - name: java the things
