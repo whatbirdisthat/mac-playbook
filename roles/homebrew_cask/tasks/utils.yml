@@ -7,7 +7,6 @@
     - docker
     - flycut
     - google-backup-and-sync
-    - gpg-suite
     - iterm2
     - minikube
     - minishift
