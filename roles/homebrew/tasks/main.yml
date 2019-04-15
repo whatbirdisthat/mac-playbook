@@ -12,8 +12,11 @@
     - kubectl
     - lynx
     - mas
+    - neofetch
     - pandoc
     - pass
+    - ranger
+    - shellcheck
     - tmux
     - tree
     - watch
