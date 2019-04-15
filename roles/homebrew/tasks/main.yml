@@ -4,8 +4,12 @@
   with_items:
     - awscli
     - bmon
+    - colordiff
+    - coreutils
+    - direnv
     - docker-completion
     - docker-compose-completion
+    - dos2unix
     - git
     - httpie
     - jq

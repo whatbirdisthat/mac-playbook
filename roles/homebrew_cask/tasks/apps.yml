@@ -6,6 +6,8 @@
     - atom
     - blender
     - clocker
+    - docker
+    - firefox
     - gimp
     - google-chrome
     - jetbrains-toolbox
@@ -15,7 +17,10 @@
     - mpv
     - obs
     - processing
+    - slack
     - spectacle
     - steam
+    - sublime-text
     - virtualbox
     - visual-studio-code
+    - whatsapp

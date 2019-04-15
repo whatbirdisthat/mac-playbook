@@ -10,6 +10,9 @@
     - google-backup-and-sync
     - iterm2
     - minikube
+    - minishift
+    - quicklook-csv
+    - quicklook-json
     - spectacle
     - ttscoff-mmd-quicklook
     - xquartz

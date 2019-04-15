@@ -5,36 +5,52 @@
 - name: Install vscode extensions
   command: "/usr/local/bin/code --install-extension '{{ item }}'"
   with_items:
+    - DanielThielking.aws-cloudformation-yaml
     - DavidAnson.vscode-markdownlint
+    - EditorConfig.EditorConfig
+    - GrapeCity.gc-excelviewer
     - PeterJausovec.vscode-docker
+    - Rubymaniac.vscode-direnv
+    - SirTori.indenticator
     - Tyriar.sort-lines
     - austin.code-gnu-global
+    - aws-scripting-guy.cform
     - bibhasdn.unique-lines
+    - bungcip.better-toml
     - codezombiech.gitignore
     - cssho.vscode-svgviewer
+    - darkriszty.markdown-table-prettify
     - donjayamanne.githistory
-    - donjayamanne.jupyter
+    - dunstontc.dark-plus-syntax
     - eamodio.gitlens
     - esbenp.prettier-vscode
     - evilz.vscode-reveal
     - formulahendry.code-runner
     - haaaad.ansible
-    - lukehoban.Go
+    - kddejong.vscode-cfn-lint
     - marcostazi.VS-code-vagrantfile
+    - mauve.terraform
+    - mdickin.markdown-shortcuts
     - mike-lischke.vscode-antlr4
     - mitaki28.vscode-clang
     - ms-python.python
+    - ms-vscode.Go
+    - ms-vscode.PowerShell
     - ms-vscode.cpptools
     - ms-vscode.csharp
-    - naereen.makefiles-support-for-vscode
+    - ms-vsliveshare.vsliveshare
+    - oderwat.indent-rainbow
     - redhat.vscode-yaml
     - ryu1kn.partial-diff
     - secanis.jenkinsfile-support
     - streetsidesoftware.code-spell-checker
+    - timonwong.ansible-autocomplete
+    - timonwong.shellcheck
     - tuxtina.json2yaml
     - twxs.cmake
     - vector-of-bool.cmake-tools
     - vscoss.vscode-ansible
     - wholroyd.jinja
+    - zhouronghui.propertylist
   register: vscode_result
   changed_when: "'already installed' not in vscode_result.stdout"
