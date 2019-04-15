@@ -4,7 +4,6 @@
   with_items:
     - clocker
     - disk-inventory-x
-    - docker
     - flycut
     - font-source-code-pro
     - google-backup-and-sync
